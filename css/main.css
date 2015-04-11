@@ -1,0 +1,63 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    font-family: Roboto, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    background-color: #E5E5E5;
+}
+
+core-scroll-header-panel {
+    height: 100%;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+core-toolbar {
+    background: #03a9f4;
+    color: white;
+}
+
+#tabs {
+  width: 100%;
+  margin: 0;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  text-transform: uppercase;
+  background: #03a9f4;
+  color: white;
+}
+
+core-animated-pages {
+      
+      right: 0;
+      bottom: 0;
+      left: 0;
+      font-size: 72px;
+        
+    
+      /*overflow: hidden;*/
+    }
+
+core-animated-pages > section {
+    height: 100%;
+    width: 100%;
+    position: relative;
+}
+
+#page1 {
+   background-color: aquamarine;
+}
+
+#page2 {
+    background-color: bisque;
+}
+
+#page3 {
+    background-color: cadetblue;
+}
+
+section > div {
+    height: 100%;
+    width: 100%;
+}

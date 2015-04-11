@@ -1,10 +1,85 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <!-- 1. Load platform support before any code that touches the DOM. -->
-    <script src="bower_components/webcomponentsjs/webcomponents.min.js"></script>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+      <meta name="mobile-web-app-capable" content="yes">
+      <meta name="apple-mobile-web-app-capable" content="yes">
+      
+      
+      <title>Portfolio</title>
+      
+      <!-- 1. Load platform support before any code that touches the DOM. -->
+      <script src="bower_components/webcomponentsjs/webcomponents.min.js"></script>
+      
+      <!-- 2. Normalize all them elements -->
+      <link rel="stylesheet" href="bower_components/normalize.css/normalize.css">
+      
+      <!-- 3. Load Polymer and Paper elements. -->
+      
+      <link rel="import" href="bower_components/font-roboto/roboto.html">
+      <link rel="import" href="bower_components/core-icons/core-icons.html">
+      <link rel="import" href="bower_components/core-elements/core-elements.html">
+      <link rel="import" href="bower_components/paper-elements/paper-elements.html">
+      <link rel="import" href="bower_components/core-animated-pages/transitions/slide-from-right.html">
+      
+      <!-- 4. Load Custom CSS -->
+      <link rel="stylesheet" href="css/main.css">
+      
   </head>
-  <body>
-    
+  <body unresolved>
+      
+      <core-scroll-header-panel condenses>
+          <core-toolbar class="tall">
+              <div>Hello World!</div>
+              <div class="bottom indent title">Hello! I iz a Designer</div>
+          </core-toolbar>
+          <div class="content">
+              <paper-tabs id="tabs" selected="1">
+                  <paper-tab name="Contact" onclick="stuff(0);">Contact</paper-tab>
+                  <paper-tab name="Portfolio" onclick="stuff(1);">Portfolio</paper-tab>
+                  <paper-tab name="About" onclick="stuff(2);">About</paper-tab>
+              </paper-tabs>
+              <core-animated-pages selected="1" transitions="slide-from-right">
+                  <section id="page1">
+                      <div hero-id="hero" hero>hahahahahaha</div>
+                  </section>
+                  <section id="page2" selected="selected">
+                      <div hero-id="hero">lolololol</div>
+                  </section>
+                  <section id="page3">
+                      <div hero-id="hero" hero>jajajajajajajaja</div>
+                  </section>
+              </core-animated-pages>
+          </div>
+          
+          
+      </core-scroll-header-panel>
+      
+<script>
+
+    // custom transformation: scale header's title
+    var titleStyle = document.querySelector('.title').style;
+    addEventListener('core-header-transform', function(e) {
+      var d = e.detail;
+      var m = d.height - d.condensedHeight;
+      var scale = Math.max(0.75, (m - d.y) / (m / 0.25)  + 0.75);
+      titleStyle.transform = titleStyle.webkitTransform =
+          'scale(' + scale + ') translateZ(0)';
+    });
+
+        function change() {
+      var s = document.querySelector('select');
+      document.querySelector('core-animated-pages').transitions = document.querySelector('select').options[s.selectedIndex].value;
+    }
+
+    function stuff(page) {
+      var p = document.querySelector('core-animated-pages');
+      p.selected = page;
+
+    }
+  </script>
+        
   </body>
 </html>
