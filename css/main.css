@@ -29,7 +29,6 @@ core-toolbar {
 }
 
 core-animated-pages {
-      
       right: 0;
       bottom: 0;
       left: 0;
@@ -57,7 +56,12 @@ core-animated-pages > section {
     background-color: cadetblue;
 }
 
+core-animated-pages {
+}
+
 section > div {
-    height: 100%;
-    width: 100%;
+    position: absolute;
+    height: 400px;
+    width: 100vw;
+    padding: 10%;
 }
