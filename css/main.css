@@ -6,6 +6,11 @@ html, body {
 }
 
 core-scroll-header-panel {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
     height: 100%;
     overflow: auto;
     -webkit-overflow-scrolling: touch;
@@ -32,7 +37,7 @@ core-animated-pages {
       right: 0;
       bottom: 0;
       left: 0;
-      font-size: 72px;
+      /*font-size: 72px;*/
         
     
       /*overflow: hidden;*/
@@ -40,8 +45,9 @@ core-animated-pages {
 
 core-animated-pages > section {
     height: 100%;
-    width: 100%;
+    /*width: 100%;*/
     position: relative;
+    margin: 30px;
 }
 
 #page1 {
@@ -61,7 +67,16 @@ core-animated-pages {
 
 section > div {
     position: absolute;
-    height: 400px;
-    width: 100vw;
-    padding: 10%;
+    height: 800px;
+    width: 100%;
+    max-width: 600px;
 }
+
+form {
+    padding: 5em;
+    background-color: white;
+}
+
+paper-fab.green {
+      background: #259b24;
+    }

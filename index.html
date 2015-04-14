@@ -18,11 +18,16 @@
       
       <!-- 3. Load Polymer and Paper elements. -->
       
-      <link rel="import" href="bower_components/font-roboto/roboto.html">
-      <link rel="import" href="bower_components/core-icons/core-icons.html">
+      <!--<link rel="import" href="bower_components/font-roboto/roboto.html">-->
+      <link rel="import" href="bower_components/core-icons/communication-icons.html">
       <link rel="import" href="bower_components/core-elements/core-elements.html">
+      <link rel="import" href="bower_components/core-input/core-input.html">
+      <link rel="import" href="bower_components/paper-submit/paper-submit.html">
       <link rel="import" href="bower_components/paper-elements/paper-elements.html">
       <link rel="import" href="bower_components/core-animated-pages/transitions/slide-from-right.html">
+      <link rel="import" href="bower_components/paper-input/paper-autogrow-textarea.html">
+      <link rel="import" href="bower_components/paper-input/paper-input.html">
+      <link rel="import" href="bower_components/paper-input/paper-input-decorator.html">
       
       <!-- 4. Load Custom CSS -->
       <link rel="stylesheet" href="css/main.css">
@@ -32,29 +37,49 @@
       
       <core-scroll-header-panel condenses>
           <core-toolbar class="tall">
-              <div>Hello World!</div>
-              <div class="bottom indent title">Hello! I iz a Designer</div>
+              
+              <div class=" title">Luke Riley</div>
+              <div class="bottom fit" horizontal layout>
+                  <paper-tabs id="tabs" selected="1">
+                      <paper-tab name="Contact" onclick="stuff(0);">Contact</paper-tab>
+                      <paper-tab name="Portfolio" onclick="stuff(1);">Portfolio</paper-tab>
+                      <paper-tab name="About" onclick="stuff(2);">About</paper-tab>
+                  </paper-tabs>
+              </div>
           </core-toolbar>
           <div class="content">
-              <paper-tabs id="tabs" selected="1">
-                  <paper-tab name="Contact" onclick="stuff(0);">Contact</paper-tab>
-                  <paper-tab name="Portfolio" onclick="stuff(1);">Portfolio</paper-tab>
-                  <paper-tab name="About" onclick="stuff(2);">About</paper-tab>
-              </paper-tabs>
+              
               <core-animated-pages selected="1" transitions="slide-from-right">
-                  <section id="page1">
-                      <div hero-id="hero" hero>hahahahahaha</div>
+                  <section id="page0">
+                      <div hero-id="hero" hero>
+                          <a href="tel:+14028531164"><paper-fab icon="communication:phone" class="green" title="arrow-forward"></paper-fab></a>
+                          <paper-shadow class="card" z="1">
+                              <form id="ContactMe">
+                                  <h2>Send Me a Message</h2>
+                                  <paper-input-decorator label="First Name" autovalidate error="must add your first name!" floatinglabel class="invalid" ><input is="core-input" id="contactr" required type="text" name="firstname"></paper-input-decorator>
+                                  <paper-input-decorator label="Last Name" autovalidate error="must add your last name!" floatinglabel  class="invalid"><input is="core-input" id="contactr" required type="text" name="firstname"></paper-input-decorator>
+                                  <paper-input-decorator label="Company Name (optional)" floatinglabel><input is="core-input" type="text"></paper-input-decorator>
+                                  <paper-input-decorator label="Email Address" autovalidate error="must be a valid email address!" floatinglabel class="invalid"><input is="core-input" id="contactr" required type="email"></paper-input-decorator>
+                                  <paper-submit type="button" onclick="sendContactForm(), document.querySelector('#toast3').show(), document.getElementById('ContactMe').reset()">Send Message</paper-submit>
+                                </form>
+                              <!--<paper-button id="submitty" raised onclick=" document.querySelector('#toast3').show(), document.getElementById('ContactMe').reset(); " role="button" tabindex="0"><paper-ripple id="ripple" fit=""></paper-ripple><template if="{{raised}}"></template><paper-shadow id="shadow" fit="" animated=""></paper-shadow>
+                                      <div class="button green" relative="" layout="" horizontal="" center-center="">Send Message</div><core-a11y-keys keys="space enter" target="{{}}" on-keys-pressed="{{ _activate }}"></core-a11y-keys></paper-button>-->
+                            </paper-shadow>
+                      </div>
                   </section>
-                  <section id="page2" selected="selected">
-                      <div hero-id="hero">lolololol</div>
+                  <section id="page1" selected="selected">
+                      <div hero-id="hero">
+                          <core-scroll-threshold id="threshold" lowerThreshold="500" on-lower-trigger="{{loadMore}}" lowerTriggered="{{spinnerShouldShow}}"></core-scroll-threshold>
+                      </div>
+                      
                   </section>
-                  <section id="page3">
+                  <section id="page2">
                       <div hero-id="hero" hero>jajajajajajajaja</div>
                   </section>
               </core-animated-pages>
           </div>
           
-          
+          <paper-toast id="toast3" class="capsule core-transition core-transition-bottom" text="Message sent" style="padding-right: 60px; position: fixed; outline: none; z-index: 22; box-sizing: border-box; display: none;" role="status" touch-action="none" tabindex="-1"><core-overlay id="overlay" autofocusdisabled="" autoclosedisabled="{{autoCloseDisabled}}" opened="{{opened}}" target="{{}}" transition="core-transition-bottom"></core-overlay><div class="toast-container" horizontal="" layout=""><div class="toast-text" flex="">Message sent</div><div class="toast-text toast-action" on-tap="{{ dismiss }}"></div></div><core-media-query query="max-width: {{responsiveWidth}}" querymatches="{{narrowMode}}"></core-media-query></paper-toast>
       </core-scroll-header-panel>
       
 <script>
@@ -79,6 +104,13 @@
       p.selected = page;
 
     }
+    function sendMessage(el) {
+    el.show();
+  }
+    $('#ContactMe').submit(function () {
+ sendContactForm();
+ return false;
+});
   </script>
         
   </body>
