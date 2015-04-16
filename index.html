@@ -50,30 +50,49 @@
           <div class="content">
               
               <core-animated-pages selected="1" transitions="slide-from-right">
-                  <section id="page0">
-                      <div hero-id="hero" hero>
+                  <section id="page0 PaNelTabs" horizontal layout>
+                      <div hero-id="hero" id="contacte" horizontal layout hero>
                           <a href="tel:+14028531164"><paper-fab icon="communication:phone" class="green" title="arrow-forward"></paper-fab></a>
                           <paper-shadow class="card" z="1">
-                              <form id="ContactMe">
+                              <form id="ContactMe" >
                                   <h2>Send Me a Message</h2>
-                                  <paper-input-decorator label="First Name" autovalidate error="must add your first name!" floatinglabel class="invalid" ><input is="core-input" id="contactr" required type="text" name="firstname"></paper-input-decorator>
-                                  <paper-input-decorator label="Last Name" autovalidate error="must add your last name!" floatinglabel  class="invalid"><input is="core-input" id="contactr" required type="text" name="firstname"></paper-input-decorator>
+                                  <paper-input-decorator label="First Name" autovalidate error="must add your first name!" floatinglabel class="invalid" layout horizontal><input is="core-input" id="contactr" required type="text" name="firstname" class="inline"></paper-input-decorator>
+                                  <paper-input-decorator label="Last Name" autovalidate error="must add your last name!" floatinglabel  class="invalid" layout horizontal><input is="core-input" id="contactr" required type="text" name="firstname" class="inline"></paper-input-decorator>
                                   <paper-input-decorator label="Company Name (optional)" floatinglabel><input is="core-input" type="text"></paper-input-decorator>
                                   <paper-input-decorator label="Email Address" autovalidate error="must be a valid email address!" floatinglabel class="invalid"><input is="core-input" id="contactr" required type="email"></paper-input-decorator>
-                                  <paper-submit type="button" onclick="sendContactForm(), document.querySelector('#toast3').show(), document.getElementById('ContactMe').reset()">Send Message</paper-submit>
+                                  <paper-submit id="contactForm" type="submit" onclick="sendContactForm(), document.querySelector('#toast3').show(), document.getElementById('ContactMe').reset()">Send Message</paper-submit>
                                 </form>
                               <!--<paper-button id="submitty" raised onclick=" document.querySelector('#toast3').show(), document.getElementById('ContactMe').reset(); " role="button" tabindex="0"><paper-ripple id="ripple" fit=""></paper-ripple><template if="{{raised}}"></template><paper-shadow id="shadow" fit="" animated=""></paper-shadow>
                                       <div class="button green" relative="" layout="" horizontal="" center-center="">Send Message</div><core-a11y-keys keys="space enter" target="{{}}" on-keys-pressed="{{ _activate }}"></core-a11y-keys></paper-button>-->
                             </paper-shadow>
                       </div>
                   </section>
-                  <section id="page1" selected="selected">
-                      <div hero-id="hero">
-                          <core-scroll-threshold id="threshold" lowerThreshold="500" on-lower-trigger="{{loadMore}}" lowerTriggered="{{spinnerShouldShow}}"></core-scroll-threshold>
+                  <section id="page1 PaNelTabs" selected="selected">
+                      <div hero-id="hero" id="portfolio">
+                          <core-scroll-threshold id="threshold" lowerThreshold="500" on-lower-trigger="{{loadMore}}" lowerTriggered="{{spinnerShouldShow}}">
+                              <core-animated-pages selected="{{page}}" transitions="hero-transition" on-core-animated-pages-transition-end="{{complete}}">
+                                  <section>
+                                      <div class="chip-container" hero-p on-tap="{{transition}}">
+                                          <div class="chip">
+                                            <div class="chip-top" style="background:#f4db33;">
+                                            </div>
+                                            <div class="chip-bottom">
+                                              <div class="chip-title">Project 1</div>
+                                            </div>
+                                          </div>
+                                      </div>
+                                  </section>
+                                  <section>
+                                    <div class="card">
+                                      <!-- Details here ... -->
+                                    </div>
+                                  </section>
+                              </core-animated-pages>
+                          </core-scroll-threshold>
                       </div>
                       
                   </section>
-                  <section id="page2">
+                  <section id="page2 PaNelTabs">
                       <div hero-id="hero" hero>jajajajajajajaja</div>
                   </section>
               </core-animated-pages>
@@ -107,10 +126,7 @@
     function sendMessage(el) {
     el.show();
   }
-    $('#ContactMe').submit(function () {
- sendContactForm();
- return false;
-});
+    
   </script>
         
   </body>

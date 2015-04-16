@@ -37,46 +37,129 @@ core-animated-pages {
       right: 0;
       bottom: 0;
       left: 0;
-      /*font-size: 72px;*/
-        
-    
-      /*overflow: hidden;*/
     }
 
 core-animated-pages > section {
-    height: 100%;
-    /*width: 100%;*/
-    position: relative;
-    margin: 30px;
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    overflow-y: scroll;
+}
+
+#PaNelTabs div {
+    position: absolute;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#page0 {
+    padding-left: auto;
+    padding-right: auto;
 }
 
 #page1 {
-   background-color: aquamarine;
 }
 
 #page2 {
-    background-color: bisque;
-}
-
-#page3 {
     background-color: cadetblue;
 }
 
-core-animated-pages {
+core-animated-pages:nth-child(1) #contacte paper-shadow.card {
+    width: 80%;
 }
 
-section > div {
-    position: absolute;
-    height: 800px;
-    width: 100%;
-    max-width: 600px;
+core-animated-pages:nth-child(1) #contacte {
+    width: 95%;
+
+    max-width: 1024px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
 }
 
 form {
     padding: 5em;
     background-color: white;
+    width: 
 }
 
 paper-fab.green {
-      background: #259b24;
+    background: #259b24;
+    margin: 0px 30px 30px 30px;
     }
+
+
+
+
+
+
+
+
+
+
+      .chip-container {
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        text-align: center;
+              margin-top: 30px;
+      }
+
+      .chip {
+        display: inline-block;
+        position: relative;
+        border-radius: 3px;
+        margin: 4px;
+        overflow: hidden;
+        text-align: start;
+        background-color: #fff;
+        box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.16);
+      }
+
+      .chip-top {
+        width: 200px;
+        height: 200px;
+      }
+
+      .chip-bottom {
+        padding: 8px;
+        line-height: 1.5;
+      }
+
+      .chip-album-title {
+        font-weight: bold;
+      }
+
+      #details {
+        padding: 200px 10% 0;
+      }
+
+      #portfolio .card {
+        height: 400px;
+        border-radius: 3px;
+        text-align: start;
+        overflow: hidden;
+        background: #fff;
+        box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+      }
+
+      .card-left {
+        width: 400px;
+      }
+
+      .card-right {
+        padding: 24px;
+      }
+
+      .card-icon {
+        border-radius: 50%;
+        width: 60px;
+        height: 60px;
+        margin-right: 16px;
+      }
+
+      .card-album-title {
+        font-size: 2em;
+      }
