@@ -1,3 +1,17 @@
+[touch-action="none"]{ -ms-touch-action: none; touch-action: none;}
+html /deep/ [touch-action="none"]{ -ms-touch-action: none; touch-action: none;}
+[touch-action="auto"]{ -ms-touch-action: auto; touch-action: auto;}
+html /deep/ [touch-action="auto"]{ -ms-touch-action: auto; touch-action: auto;}
+[touch-action="pan-x"]{ -ms-touch-action: pan-x; touch-action: pan-x;}
+html /deep/ [touch-action="pan-x"]{ -ms-touch-action: pan-x; touch-action: pan-x;}
+[touch-action="pan-y"]{ -ms-touch-action: pan-y; touch-action: pan-y;}
+html /deep/ [touch-action="pan-y"]{ -ms-touch-action: pan-y; touch-action: pan-y;}
+[touch-action="pan-x pan-y"],[touch-action="pan-y pan-x"]{ -ms-touch-action: pan-x pan-y; touch-action: pan-x pan-y;}
+html /deep/ [touch-action="pan-x pan-y"],html /deep/ [touch-action="pan-y pan-x"]{ -ms-touch-action: pan-x pan-y; touch-action: pan-x pan-y;}
+[touch-action="manipulation"]{ -ms-touch-action: manipulation; touch-action: manipulation;}
+html /deep/ [touch-action="manipulation"]{ -ms-touch-action: manipulation; touch-action: manipulation;}
+
+
 html, body {
     height: 100%;
     margin: 0;
@@ -128,7 +142,7 @@ paper-fab.green {
         line-height: 1.5;
       }
 
-      .chip-album-title {
+      .chip-project-title {
         font-weight: bold;
       }
 
@@ -160,6 +174,6 @@ paper-fab.green {
         margin-right: 16px;
       }
 
-      .card-album-title {
+      .card-project-title {
         font-size: 2em;
       }
