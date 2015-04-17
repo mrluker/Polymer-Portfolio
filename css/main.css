@@ -72,6 +72,10 @@ core-animated-pages > section {
     padding-right: auto;
 }
 
+#contacte {
+    margin-top: 30px;
+}
+
 #page1 {
 }
 
@@ -102,15 +106,6 @@ paper-fab.green {
     background: #259b24;
     margin: 0px 30px 30px 30px;
     }
-
-
-
-
-
-
-
-
-
 
       .chip-container {
         position: absolute;

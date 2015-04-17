@@ -25,6 +25,7 @@
       <link rel="import" href="bower_components/paper-submit/paper-submit.html">
       <link rel="import" href="bower_components/core-selection/core-selection.html">
       <link rel="import" href="bower_components/paper-elements/paper-elements.html">
+      <link rel="import" href="bower_components/core-pages/core-pages.html">
       <link rel="import" href="bower_components/core-animated-pages/transitions/slide-from-right.html">
       <link rel="import" href="bower_components/core-animated-pages/transitions/hero-transition.html">
       <link rel="import" href="bower_components/paper-input/paper-autogrow-textarea.html">
@@ -54,7 +55,7 @@
               <core-animated-pages selected="1" transitions="slide-from-right">
                   <section id="page0 PaNelTabs" horizontal layout>
                       <div hero-id="hero" id="contacte" horizontal layout hero>
-                          <a href="tel:+14028531164"><paper-fab icon="communication:phone" class="green" title="arrow-forward"></paper-fab></a>
+                          <a href="tel:+14028531164"><paper-fab icon="communication:phone" class="green" title="Call Me" aria-label="Call Me"></paper-fab></a>
                           <paper-shadow class="card" z="1">
                               <form id="ContactMe" >
                                   <h2>Send Me a Message</h2>
@@ -64,30 +65,49 @@
                                   <paper-input-decorator label="Email Address" autovalidate error="must be a valid email address!" floatinglabel class="invalid"><input is="core-input" id="contactr" required type="email"></paper-input-decorator>
                                   <paper-submit id="contactForm" type="submit" onclick="sendContactForm(), document.querySelector('#toast3').show(), document.getElementById('ContactMe').reset()">Send Message</paper-submit>
                                 </form>
-                              <!--<paper-button id="submitty" raised onclick=" document.querySelector('#toast3').show(), document.getElementById('ContactMe').reset(); " role="button" tabindex="0"><paper-ripple id="ripple" fit=""></paper-ripple><template if="{{raised}}"></template><paper-shadow id="shadow" fit="" animated=""></paper-shadow>
-                                      <div class="button green" relative="" layout="" horizontal="" center-center="">Send Message</div><core-a11y-keys keys="space enter" target="{{}}" on-keys-pressed="{{ _activate }}"></core-a11y-keys></paper-button>-->
                             </paper-shadow>
                       </div>
                   </section>
                   <section id="page1 PaNelTabs" selected="selected">
                       <div hero-id="hero" id="portfolio">
                           <core-scroll-threshold id="threshold" lowerThreshold="500" on-lower-trigger="{{loadMore}}" lowerTriggered="{{spinnerShouldShow}}">
-                              <core-animated-pages selected="{{page}}" transitions="hero-transition" on-core-animated-pages-transition-end="{{complete}}">
+                              <core-animated-pages selected="{{page}}" transitions="hero-transition cross-fade" on-core-animated-pages-transition-end="{{complete}}" notap>
                                   <section>
                                       <div class="chip-container" hero-p on-tap="{{transition}}">
-                                          <div class="chip">
-                                            <div class="chip-top" style="background:#f4db33;">
-                                            </div>
-                                            <div class="chip-bottom">
-                                              <div class="chip-project-title">Project 1</div>
-                                                <div class="chip-client">Tycho</div>
-                                            </div>
-                                          </div>
+                                          <template is="auto-binding" id="temple">
+                                                <div class="chip" hero style="-webkit-transform-origin: 0px 0px 0px 0px">
+                                                    <div class="chip-top" style="background:#f4db33;">
+                                                    </div>
+                                                    <div class="chip-bottom">
+                                                        <div class="chip-project-title">Project 1</div>
+                                                        <div class="chip-client">Tycho</div>
+                                                    </div>
+                                                    <paper-ripple fit></paper-ripple>
+                                                </div>
+                                                <div class="chip">
+                                                    <div class="chip-top" style="background:#8332F4;">
+                                                    </div>
+                                                    <div class="chip-bottom">
+                                                        <div class="chip-project-title">Project 2</div>
+                                                        <div class="chip-client">Tycho</div>
+                                                    </div>
+                                                    <paper-ripple fit></paper-ripple>
+                                                </div>
+                                                <div class="chip">
+                                                    <div class="chip-top" style="background:#9CD5FD;">
+                                                    </div>
+                                                    <div class="chip-bottom">
+                                                        <div class="chip-project-title">Project 3</div>
+                                                        <div class="chip-client">Tycho</div>
+                                                    </div>
+                                                    <paper-ripple fit></paper-ripple>
+                                                </div>
+                                        </template>
                                       </div>
                                   </section>
-                                  <section>
-                                    <div class="card">
-                                      <!-- Details here ... -->
+                                  <section id="details">
+                                    <div class="card" layout horizontal hero-id="selectedProject" hero on-tap="{{transition}}">
+                                      
                                     </div>
                                   </section>
                               </core-animated-pages>
@@ -104,33 +124,7 @@
           <paper-toast id="toast3" class="capsule core-transition core-transition-bottom" text="Message sent" style="padding-right: 60px; position: fixed; outline: none; z-index: 22; box-sizing: border-box; display: none;" role="status" touch-action="none" tabindex="-1"><core-overlay id="overlay" autofocusdisabled="" autoclosedisabled="{{autoCloseDisabled}}" opened="{{opened}}" target="{{}}" transition="core-transition-bottom"></core-overlay><div class="toast-container" horizontal="" layout=""><div class="toast-text" flex="">Message sent</div><div class="toast-text toast-action" on-tap="{{ dismiss }}"></div></div><core-media-query query="max-width: {{responsiveWidth}}" querymatches="{{narrowMode}}"></core-media-query></paper-toast>
       </core-scroll-header-panel>
       
-<script>
-
-    // custom transformation: scale header's title
-    var titleStyle = document.querySelector('.title').style;
-    addEventListener('core-header-transform', function(e) {
-      var d = e.detail;
-      var m = d.height - d.condensedHeight;
-      var scale = Math.max(0.75, (m - d.y) / (m / 0.25)  + 0.75);
-      titleStyle.transform = titleStyle.webkitTransform =
-          'scale(' + scale + ') translateZ(0)';
-    });
-
-        function change() {
-      var s = document.querySelector('select');
-      document.querySelector('core-animated-pages').transitions = document.querySelector('select').options[s.selectedIndex].value;
-    }
-
-    function stuff(page) {
-      var p = document.querySelector('core-animated-pages');
-      p.selected = page;
-
-    }
-    function sendMessage(el) {
-    el.show();
-  }
-    
-  </script>
-        
+<script src="portfolio.js"></script>
+      
   </body>
 </html>
