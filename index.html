@@ -58,12 +58,11 @@
                   </section>
                   <section id="page1 PaNelTabs" selected="selected">
                       <div hero-id="hero" id="portfolio">
-                          <core-scroll-threshold id="threshold" lowerThreshold="500" on-lower-trigger="{{loadMore}}" lowerTriggered="{{spinnerShouldShow}}">
-                              <core-animated-pages selected="{{page}}" transitions="hero-transition cross-fade" on-core-animated-pages-transition-end="{{complete}}" notap>
-                                  <section>
+                              <core-animated-pages selected="{{proyectoos}}" transitions="hero-transition cross-fade" on-core-animated-pages-transition-end="{{complete}}" notap>
+                                  <section class="core-selected" active>
                                       <div class="chip-container" hero-p on-tap="{{transition}}">
-                                          <template is="auto-binding" id="temple">
-                                                <div class="chip" hero style="-webkit-transform-origin: 0px 0px 0px 0px">
+                                          <template is="auto-binding" id="proyectos">
+                                                <div class="chip" hero-id="project1" style="-webkit-transform-origin: 0px 0px 0px; border-radius: 3px;">
                                                     <div class="chip-top" style="background:#f4db33;">
                                                     </div>
                                                     <div class="chip-bottom">
@@ -72,7 +71,7 @@
                                                     </div>
                                                     <paper-ripple fit></paper-ripple>
                                                 </div>
-                                                <div class="chip">
+                                                <div class="chip" hero-id="project2" style="-webkit-transform-origin: 0px 0px 0px; border-radius: 3px;">
                                                     <div class="chip-top" style="background:#8332F4;">
                                                     </div>
                                                     <div class="chip-bottom">
@@ -81,7 +80,7 @@
                                                     </div>
                                                     <paper-ripple fit></paper-ripple>
                                                 </div>
-                                                <div class="chip">
+                                                <div class="chip" hero-id="project3" style="-webkit-transform-origin: 0px 0px 0px; border-radius: 3px;">
                                                     <div class="chip-top" style="background:#9CD5FD;">
                                                     </div>
                                                     <div class="chip-bottom">
@@ -93,13 +92,14 @@
                                         </template>
                                       </div>
                                   </section>
-                                  <section id="details">
-                                    <div class="card" layout horizontal hero-id="selectedProject" hero on-tap="{{transition}}">
-                                      
-                                    </div>
+                                  <section id="details" class>
+                                    <template is="autobinding">
+                                        <div class="card" layout horizontal hero-id="project1" hero on-tap="{{transition}}" style="-webkit-transform-origin: 0px 0px 0px; border-radius: 3px;">
+
+                                        </div>
+                                    </template>
                                   </section>
                               </core-animated-pages>
-                          </core-scroll-threshold>
                       </div>
                       
                   </section>

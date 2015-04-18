@@ -1,4 +1,3 @@
-
     // custom transformation: scale header's title
     var titleStyle = document.querySelector('.title').style;
     addEventListener('core-header-transform', function(e) {
@@ -23,3 +22,19 @@
     el.show();
   }
     
+
+
+    
+      selectedProject: null,
+
+      transition: function(e) {
+        if (this.page === 0 && e.target.templateInstance.model.item) {
+          this.selectedAlbum = e.target.templateInstance.model.item;
+          this.page = 1;
+        } else {
+          this.page = 0;
+        }
+      }
+    });
+
+  
