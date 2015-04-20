@@ -1,0 +1,14 @@
+{
+  "name": "paper-submit",
+  "description": "A polymer paper-button which acts like a button type='submit' element",
+  "main": "paper-submit.html",
+  "ignore": [],
+  "keywords": ["polymer", "button", "submit", "paper", "paper-button", "submit"],
+  "authors": [{"name": "Giacomo Furlan", "email": "giacomo@giacomofurlan.name", "homepage": "https://giacomofurlan.name"}],
+  "dependencies": {
+    "polymer": "Polymer/polymer",
+    "paper-button": "Polymer/paper-button"
+  },
+  "private": false,
+  "version": "1.0.0"
+}

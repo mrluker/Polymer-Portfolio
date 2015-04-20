@@ -21,20 +21,3 @@
     function sendMessage(el) {
     el.show();
   }
-    
-
-
-    
-      selectedProject: null,
-
-      transition: function(e) {
-        if (this.page === 0 && e.target.templateInstance.model.item) {
-          this.selectedAlbum = e.target.templateInstance.model.item;
-          this.page = 1;
-        } else {
-          this.page = 0;
-        }
-      }
-    });
-
-  

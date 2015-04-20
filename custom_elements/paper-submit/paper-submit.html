@@ -1,0 +1,63 @@
+<link href="../../bower_components/polymer/polymer.html" rel="import">
+<link href="../../bower_components/paper-button/paper-button.html" rel="import">
+
+<polymer-element name="paper-submit" attributes="bClass raised recenteringTouch fill" role="button" on-keypress="{{enter_submit}}">
+  <template>
+    <paper-button id="button" on-click="{{click_submit}}" class="{{bClass}}" raised="{{raised}}" recenteringTouch="{{recenteringTouch}}" role="button">
+      <content></content>
+    </paper-button>
+  </template>
+  <script>
+    function getParentForm(el) {
+      var parent = el.parentNode,
+          tag = parent.tagName.toLowerCase();
+      if (tag === 'form') {
+        return parent;
+      }
+      if (tag === 'body') {
+        return null;
+      }
+
+      return getParentForm(parent);
+    }
+    Polymer({
+      publish: {
+        /**
+         * The paper-button class attribute
+         */
+        bClass: '',
+        
+        /**
+         * See paper-button for the following attributes
+         */
+        raised: false,
+        recenteringTouch: false,
+        fill: true
+      },
+
+      click_submit: function () {
+        var form = getParentForm(this);
+        if (form) {
+          var firstChild = form.firstChild, button;
+          if (!firstChild || firstChild.nodeName.toLocaleLowerCase() !== 'button' || firstChild.type.toLowerCase() !== 'submit') {
+            button = document.createElement("button");
+            button.type = "submit";
+            button.style.display = 'none';
+
+            form.insertBefore(button, firstChild);
+          } else {
+            button = firstChild;
+          }
+
+          button.click();
+        }
+      },
+      
+      enter_submit: function (ev) {
+        if (ev.keyCode === 13) {
+          this.click_submit();
+        }
+      }
+    });
+  </script>
+</polymer-element>

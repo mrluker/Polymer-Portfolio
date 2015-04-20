@@ -42,7 +42,7 @@
               
               <core-animated-pages selected="1" transitions="slide-from-right">
                   <section id="page0 PaNelTabs" horizontal layout>
-                      <div hero-id="hero" id="contacte" horizontal layout hero>
+                      <div hero-id="hero" id="contacte"  horizontal layout hero>
                           <a href="tel:+14028531164"><paper-fab icon="communication:phone" class="green" title="Call Me" aria-label="Call Me"></paper-fab></a>
                           <paper-shadow class="card" z="1">
                               <form id="ContactMe" >
@@ -58,48 +58,7 @@
                   </section>
                   <section id="page1 PaNelTabs" selected="selected">
                       <div hero-id="hero" id="portfolio">
-                              <core-animated-pages selected="{{proyectoos}}" transitions="hero-transition cross-fade" on-core-animated-pages-transition-end="{{complete}}" notap>
-                                  <section class="core-selected" active>
-                                      <div class="chip-container" hero-p on-tap="{{transition}}">
-                                          <template is="auto-binding" id="proyectos">
-                                                <div class="chip" hero-id="project1" style="-webkit-transform-origin: 0px 0px 0px; border-radius: 3px;">
-                                                    <div class="chip-top" style="background:#f4db33;">
-                                                    </div>
-                                                    <div class="chip-bottom">
-                                                        <div class="chip-project-title">Project 1</div>
-                                                        <div class="chip-client">Tycho</div>
-                                                    </div>
-                                                    <paper-ripple fit></paper-ripple>
-                                                </div>
-                                                <div class="chip" hero-id="project2" style="-webkit-transform-origin: 0px 0px 0px; border-radius: 3px;">
-                                                    <div class="chip-top" style="background:#8332F4;">
-                                                    </div>
-                                                    <div class="chip-bottom">
-                                                        <div class="chip-project-title">Project 2</div>
-                                                        <div class="chip-client">Tycho</div>
-                                                    </div>
-                                                    <paper-ripple fit></paper-ripple>
-                                                </div>
-                                                <div class="chip" hero-id="project3" style="-webkit-transform-origin: 0px 0px 0px; border-radius: 3px;">
-                                                    <div class="chip-top" style="background:#9CD5FD;">
-                                                    </div>
-                                                    <div class="chip-bottom">
-                                                        <div class="chip-project-title">Project 3</div>
-                                                        <div class="chip-client">Tycho</div>
-                                                    </div>
-                                                    <paper-ripple fit></paper-ripple>
-                                                </div>
-                                        </template>
-                                      </div>
-                                  </section>
-                                  <section id="details" class>
-                                    <template is="autobinding">
-                                        <div class="card" layout horizontal hero-id="project1" hero on-tap="{{transition}}" style="-webkit-transform-origin: 0px 0px 0px; border-radius: 3px;">
-
-                                        </div>
-                                    </template>
-                                  </section>
-                              </core-animated-pages>
+                              <portfolio-projects></portfolio-projects>
                       </div>
                       
                   </section>
@@ -109,10 +68,8 @@
               </core-animated-pages>
           </div>
           
-          <paper-toast id="toast3" class="capsule core-transition core-transition-bottom" text="Message sent" style="padding-right: 60px; position: fixed; outline: none; z-index: 22; box-sizing: border-box; display: none;" role="status" touch-action="none" tabindex="-1"><core-overlay id="overlay" autofocusdisabled="" autoclosedisabled="{{autoCloseDisabled}}" opened="{{opened}}" target="{{}}" transition="core-transition-bottom"></core-overlay><div class="toast-container" horizontal="" layout=""><div class="toast-text" flex="">Message sent</div><div class="toast-text toast-action" on-tap="{{ dismiss }}"></div></div><core-media-query query="max-width: {{responsiveWidth}}" querymatches="{{narrowMode}}"></core-media-query></paper-toast>
+          
       </core-scroll-header-panel>
-      
-<script src="portfolio.js"></script>
-      
+      <script src="portfolio.js"></script>
   </body>
 </html>
