@@ -1,0 +1,47 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../elements.html">
+<link rel="import" href="../../bower_components/core-elements/core-elements.html">
+<link rel="import" href="../../bower_components/core-input/core-input.html">
+<link rel="import" href="../../bower_components/core-selection/core-selection.html">
+<link rel="import" href="../../bower_components/paper-elements/paper-elements.html">
+<link rel="import" href="../../bower_components/paper-input/paper-autogrow-textarea.html">
+<link rel="import" href="../../bower_components/paper-input/paper-input.html">
+<link rel="import" href="../../bower_components/paper-input/paper-input-decorator.html">
+<link rel="import" href="../../bower_components/paper-ripple/paper-ripple.html">
+<link rel="import" href="../paper-submit/paper-submit.html">
+
+
+
+
+<polymer-element name="contact-form">
+    <template>
+        <style>
+            .card {
+                width: 130%;
+                position: relative;
+                display: flex;
+            }
+            form {
+                padding: 5em;
+                background-color: white;
+                width: 100%;
+                display: block;
+            }
+
+        </style>
+        <paper-shadow class="card">
+          <form id="ContactMe" >
+              <h2>Send Me a Message</h2>
+              <paper-input-decorator label="First Name" autovalidate error="must add your first name!" floatinglabel class="invalid" layout horizontal><input is="core-input" id="contactr" required type="text" name="firstname" class="inline"></paper-input-decorator>
+              <paper-input-decorator label="Last Name" autovalidate error="must add your last name!" floatinglabel  class="invalid" layout horizontal><input is="core-input" id="contactr" required type="text" name="firstname" class="inline"></paper-input-decorator>
+              <paper-input-decorator label="Company Name (optional)" floatinglabel><input is="core-input" type="text"></paper-input-decorator>
+              <paper-input-decorator label="Email Address" autovalidate error="must be a valid email address!" floatinglabel class="invalid"><input is="core-input" id="contactr" required type="email"></paper-input-decorator>
+              <paper-submit id="contactForm" type="submit" onclick="sendContactForm(), document.querySelector('#toast3').show(), document.getElementById('ContactMe').reset()">Send Message</paper-submit>
+            </form>
+    </paper-shadow>
+    </template>
+    
+    <script>
+        Polymer({});
+    </script>
+</polymer-element>

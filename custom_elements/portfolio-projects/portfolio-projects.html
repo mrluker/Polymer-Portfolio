@@ -82,29 +82,29 @@
         font-size: 2em;
       }
         </style>
-        <core-animated-pages selected="1" transitions="hero-transition cross-fade" on-core-animated-pages-transition-end="" notap>
-                                  <section class="core-selected" selected="none">
-                                      <div class="chip-container" hero-p on-tap="">
+        <core-animated-pages selected="{{page}}" transitions="hero-transition" on-core-animated-pages-transition-end="complete" >
+                                  <section class="core-selected">
+                                      <div class="chip-container" hero-p on-tap="transitionProject">
                                           <template is="auto-binding" id="proyectos">
-                                                <div class="chip" hero-id=""  style="-webkit-transform-origin: 0px 0px 0px; border-radius: 3px;">
+                                                <div class="chip" hero-id="{{Hackbart-Video}}" hero?="{{Hackbart-Video === item }}" >
                                                     <div class="chip-top" style="background:#f4db33;">
                                                     </div>
                                                     <div class="chip-bottom">
                                                         <div class="chip-project-title">Project 1</div>
-                                                        <div class="chip-client">Tycho</div>
+                                                        <div class="chip-client">Hackbart's Chiropractic</div>
                                                     </div>
                                                     <paper-ripple fit></paper-ripple>
                                                 </div>
-                                                <div class="chip" hero-id="project2" style="-webkit-transform-origin: 0px 0px 0px; border-radius: 3px;">
+                                                <!--<div class="chip" hero-id="{{Drawing-IV}}" hero?="{{Drawing-IV === item }}" >
                                                     <div class="chip-top" style="background:#8332F4;">
                                                     </div>
                                                     <div class="chip-bottom">
                                                         <div class="chip-project-title">Project 2</div>
-                                                        <div class="chip-client">Tycho</div>
+                                                        <div class="chip-client">Drawings</div>
                                                     </div>
                                                     <paper-ripple fit></paper-ripple>
                                                 </div>
-                                                <div class="chip" hero-id="project3" style="-webkit-transform-origin: 0px 0px 0px; border-radius: 3px;">
+                                                <div class="chip" hero-id="{{Organ}}" hero?="{{Organ=== item }}">
                                                     <div class="chip-top" style="background:#9CD5FD;">
                                                     </div>
                                                     <div class="chip-bottom">
@@ -112,13 +112,13 @@
                                                         <div class="chip-client">Tycho</div>
                                                     </div>
                                                     <paper-ripple fit></paper-ripple>
-                                                </div>
+                                                </div>-->
                                         </template>
                                       </div>
                                   </section>
                                   <section id="details" class>
                                     <template is="autobinding">
-                                        <div id="project0" class="card" layout horizontal hero-id="" hero on-tap="" style="-webkit-transform-origin: 0px 0px 0px; border-radius: 3px;">
+                                        <div id="" class="card" layout horizontal hero-id="{{selectedProject.Hackbart-Video}}" hero on-tap="{{transition}}" z=1>
 
                                         </div>
                                     </template>
@@ -127,18 +127,52 @@
         
     </template>
     <script>
-        Polymer({});
+        /*Polymer('portfolio-projects', {
+                
+                page: 0,
+            
+                items: [
+                    { project: 'Hackbart-Video', color: '#f4db33' },
+                    { project: 'Drawing-IV', color: '#f4db33' },
+                    { project: 'Organ', color: '#f4db33' },
+                ],
+                
+                selectedProject(): null,
+            
+            
+            transition: function(e) {
+        if (this.page === 0 && e.target.templateInstance.model.item) {
+          this.selectedProject = e.target.templateInstance.model.item;
+          this.page = 1;
+        } else {
+          this.page = 0;
+        }
+      }*/
         
+        Polymer('portfolio-projects', {
+
+      page: 0,
+
+      items: [
+        { project: 'Hackbart-Video', album: 'Fragments', color: '#f4db33' },
+      ],
+
+      selectedAlbum: null,
+
+      transition: function(e) {
+        if (this.page === 0 && e.target.templateInstance.model.item) {
+          this.selectedProject = e.target.templateInstance.model.item;
+          this.page = 1;
+        } else {
+          this.page = 0;
+        }
+      }
+    });
+
+                
+                
+                
+                });
         
-               function change() {
-      var s = document.querySelector('select');
-      document.querySelector('core-animated-pages').transitions = document.querySelector('select').options[s.selectedIndex].value;
-    }
-
-    function stuff(page) {
-      var p = document.querySelector('core-animated-pages');
-      p.selected = page;
-
-    }
     </script>
 </polymer-element>

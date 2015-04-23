@@ -19,7 +19,8 @@
       <!-- 3. Load Polymer and Paper elements. -->
       <link rel="import" href="bower_components/polymer/polymer.html">
       <link rel="import" href="elements.html">
-      <link rel="import" href="custom_elements/portfolio-projects/portfolio-projects.html">
+      <!--<link rel="import" href="custom_elements/portfolio-projects/portfolio-projects.html">-->
+      <link rel="import" href="custom_elements/contact-form/contact-form.html">
       
       
       <!-- 4. Load Custom CSS -->
@@ -46,21 +47,12 @@
                   <section id="page0 PaNelTabs" horizontal layout>
                       <div hero-id="hero" id="contacte"  horizontal layout hero>
                           <a href="tel:+14028531164"><paper-fab icon="communication:phone" class="green" title="Call Me" aria-label="Call Me"></paper-fab></a>
-                          <paper-shadow class="card" z="1">
-                              <form id="ContactMe" >
-                                  <h2>Send Me a Message</h2>
-                                  <paper-input-decorator label="First Name" autovalidate error="must add your first name!" floatinglabel class="invalid" layout horizontal><input is="core-input" id="contactr" required type="text" name="firstname" class="inline"></paper-input-decorator>
-                                  <paper-input-decorator label="Last Name" autovalidate error="must add your last name!" floatinglabel  class="invalid" layout horizontal><input is="core-input" id="contactr" required type="text" name="firstname" class="inline"></paper-input-decorator>
-                                  <paper-input-decorator label="Company Name (optional)" floatinglabel><input is="core-input" type="text"></paper-input-decorator>
-                                  <paper-input-decorator label="Email Address" autovalidate error="must be a valid email address!" floatinglabel class="invalid"><input is="core-input" id="contactr" required type="email"></paper-input-decorator>
-                                  <paper-submit id="contactForm" type="submit" onclick="sendContactForm(), document.querySelector('#toast3').show(), document.getElementById('ContactMe').reset()">Send Message</paper-submit>
-                                </form>
-                            </paper-shadow>
+                          <contact-form></contact-form>
                       </div>
                   </section>
                   <section id="page1 PaNelTabs" selected="selected">
                       <div hero-id="hero" id="portfolio">
-                            <portfolio-projects></portfolio-projects>
+                            <!--<portfolio-projects></portfolio-projects>-->
                       </div>
                       
                   </section>
