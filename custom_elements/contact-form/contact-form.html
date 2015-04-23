@@ -17,23 +17,16 @@
 <polymer-element name="contact-form">
     <template>
         <style>
-            .card {
-                width: 150% ;
-                position: relative;
-                display: block;
-            }
             
             form {
                 padding: 5em;
                 background-color: white;
-               /* width: 100%;*/
-                width: 60%;
                 display: block;
             }
 
         </style>
-        <div class="card" z=1>
-          <form id="ContactMe" >
+        <paper-shadow class="card">
+          <form id="ContactMe"  >
               <h2>Send Me a Message</h2>
               <paper-input type="text" label="First Name" autovalidate floatinglabel required class="invalid" is="core-input"></paper-input>
               <paper-input type="text" label="Last Name" autovalidate floatinglabel required class="invalid" is="core-input"></paper-input>
@@ -42,7 +35,7 @@
               <paper-input-decorator label="Message" autovalidate error="say hello" floatinglabel><textarea required is="core-input"></textarea></paper-input-decorator>
               <paper-submit id="contactForm" type="submit" onclick="sendContactForm()">Send Message</paper-submit>
             </form>
-    </div>
+    </paper-shadow>
     </template>
     
     <script>
