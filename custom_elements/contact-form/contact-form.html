@@ -9,6 +9,7 @@
 <link rel="import" href="../../bower_components/paper-input/paper-input-decorator.html">
 <link rel="import" href="../../bower_components/paper-ripple/paper-ripple.html">
 <link rel="import" href="../paper-submit/paper-submit.html">
+<link rel="import" href="../../bower_components/paper-input/paper-autogrow-textarea.html">
 
 
 
@@ -17,10 +18,11 @@
     <template>
         <style>
             .card {
-                width: 130%;
+                width: 150% ;
                 position: relative;
-                display: flex;
+                display: block;
             }
+            
             form {
                 padding: 5em;
                 background-color: white;
@@ -29,16 +31,18 @@
             }
 
         </style>
-        <paper-shadow class="card">
+        <div class="card" z=1>
           <form id="ContactMe" >
               <h2>Send Me a Message</h2>
-              <paper-input-decorator label="First Name" autovalidate error="must add your first name!" floatinglabel class="invalid" layout horizontal><input is="core-input" id="contactr" required type="text" name="firstname" class="inline"></paper-input-decorator>
-              <paper-input-decorator label="Last Name" autovalidate error="must add your last name!" floatinglabel  class="invalid" layout horizontal><input is="core-input" id="contactr" required type="text" name="firstname" class="inline"></paper-input-decorator>
+              <paper-input-decorator label="First Name" autovalidate error="must add your first name!" floatinglabel class="invalid" layout horizontal><input is="core-input" required type="text" name="firstname" class="inline"></paper-input-decorator>
+              <paper-input-decorator label="Last Name" autovalidate error="must add your last name!" floatinglabel  class="invalid" layout horizontal><input is="core-input" required type="text" name="firstname" class="inline"></paper-input-decorator>
               <paper-input-decorator label="Company Name (optional)" floatinglabel><input is="core-input" type="text"></paper-input-decorator>
-              <paper-input-decorator label="Email Address" autovalidate error="must be a valid email address!" floatinglabel class="invalid"><input is="core-input" id="contactr" required type="email"></paper-input-decorator>
+              <paper-input-decorator label="Email Address" autovalidate error="must be a valid email address!" floatinglabel class="invalid"><input is="core-input" required type="email"></paper-input-decorator>
+              <paper-input-decorator label="Message Title" autovalidate error="what would you like to talk about?" floatinglabel class="invalid" layout horizontal><input is="core-input" required type="text" name="firstname" class="inline"></paper-input-decorator>
+              <paper-input-decorator label="Message" autovalidate error="Say Hello!" floatinglabel><textarea required is="core-input"></textarea></paper-input-decorator>
               <paper-submit id="contactForm" type="submit" onclick="sendContactForm(), document.querySelector('#toast3').show(), document.getElementById('ContactMe').reset()">Send Message</paper-submit>
             </form>
-    </paper-shadow>
+    </div>
     </template>
     
     <script>
