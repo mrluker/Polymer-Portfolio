@@ -18,6 +18,3 @@
       p.selected = page;
 
     }
-    function sendMessage(el) {
-    el.show();
-  }

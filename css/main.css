@@ -54,10 +54,6 @@ core-animated-pages {
     }
 
 core-animated-pages > section {
-    height: 100vh;
-    width: 100vw;
-    position: absolute;
-    overflow-y: scroll;
 }
 
 #PaNelTabs div {
@@ -106,69 +102,3 @@ paper-fab.green {
     background: #259b24;
     margin: 0px 30px 30px 30px;
     }
-
-      .chip-container {
-        position: absolute;
-        top: 0;
-        right: 0;
-        left: 0;
-        text-align: center;
-              margin-top: 30px;
-      }
-
-      .chip {
-        display: inline-block;
-        position: relative;
-        border-radius: 3px;
-        margin: 4px;
-        overflow: hidden;
-        text-align: start;
-        background-color: #fff;
-        box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.16);
-      }
-
-      .chip-top {
-        width: 200px;
-        height: 200px;
-      }
-
-      .chip-bottom {
-        padding: 8px;
-        line-height: 1.5;
-      }
-
-      .chip-project-title {
-        font-weight: bold;
-      }
-
-      #details {
-        padding: 200px 10% 0;
-      }
-
-      #portfolio .card {
-        height: 400px;
-        border-radius: 3px;
-        text-align: start;
-        overflow: hidden;
-        background: #fff;
-        box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-      }
-
-      .card-left {
-        width: 400px;
-      }
-
-      .card-right {
-        padding: 24px;
-      }
-
-      .card-icon {
-        border-radius: 50%;
-        width: 60px;
-        height: 60px;
-        margin-right: 16px;
-      }
-
-      .card-project-title {
-        font-size: 2em;
-      }
