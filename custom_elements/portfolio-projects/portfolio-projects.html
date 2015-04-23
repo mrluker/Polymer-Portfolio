@@ -86,7 +86,7 @@
                                   <section class="core-selected">
                                       <div class="chip-container" hero-p on-tap="transitionProject">
                                           <template is="auto-binding" id="proyectos">
-                                                <div class="chip" hero-id="{{Hackbart-Video}}" hero?="{{Hackbart-Video === item }}" >
+                                                <div class="chip" hero-id="Hackbart-Video">
                                                     <div class="chip-top" style="background:#f4db33;">
                                                     </div>
                                                     <div class="chip-bottom">
@@ -118,7 +118,7 @@
                                   </section>
                                   <section id="details" class>
                                     <template is="autobinding">
-                                        <div id="" class="card" layout horizontal hero-id="{{selectedProject.Hackbart-Video}}" hero on-tap="{{transition}}" z=1>
+                                        <div id="" class="card" layout horizontal hero-id="Hackbart-Video" hero on-tap="{{transitionProject}}" z=1>
                                             <div class="card-project-title">Project 1</div>
                                         </div>
                                     </template>
@@ -127,52 +127,22 @@
         
     </template>
     <script>
-        /*Polymer('portfolio-projects', {
-                
-                page: 0,
-            
-                items: [
-                    { project: 'Hackbart-Video', color: '#f4db33' },
-                    { project: 'Drawing-IV', color: '#f4db33' },
-                    { project: 'Organ', color: '#f4db33' },
-                ],
-                
-                selectedProject(): null,
-            
-            
-            transition: function(e) {
-        if (this.page === 0 && e.target.templateInstance.model.item) {
-          this.selectedProject = e.target.templateInstance.model.item;
-          this.page = 1;
-        } else {
-          this.page = 0;
-        }
-      }*/
         
         Polymer('portfolio-projects', {
 
-      page: 0,
+          page: 0,
 
-      items: [
-        { project: 'Hackbart-Video', color: '#f4db33' },
-      ],
+          selectedAlbum: null,
 
-      selectedAlbum: null,
-
-      transition: function(e) {
-        if (this.page === 0 && e.target.templateInstance.model.item) {
-          this.selectedProject = e.target.templateInstance.model.item;
-          this.page = 1;
-        } else {
-          this.page = 0;
-        }
-      }
-    });
-
-                
-                
-                
-                });
+          transitionProject: function(e) {
+            if (this.page === 0 && e.target.templateInstance.model.item) {
+              this.selectedProject = e.target.templateInstance.model.item;
+              this.page = 1;
+            } else {
+              this.page = 0;
+            }
+          }
+        });
         
     </script>
 </polymer-element>
