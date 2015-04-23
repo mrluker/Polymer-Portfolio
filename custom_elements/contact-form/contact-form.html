@@ -26,7 +26,8 @@
             form {
                 padding: 5em;
                 background-color: white;
-                width: 100%;
+               /* width: 100%;*/
+                width: 60%;
                 display: block;
             }
 
@@ -34,13 +35,12 @@
         <div class="card" z=1>
           <form id="ContactMe" >
               <h2>Send Me a Message</h2>
-              <paper-input-decorator label="First Name" autovalidate error="must add your first name!" floatinglabel class="invalid" layout horizontal><input is="core-input" required type="text" name="firstname" class="inline"></paper-input-decorator>
-              <paper-input-decorator label="Last Name" autovalidate error="must add your last name!" floatinglabel  class="invalid" layout horizontal><input is="core-input" required type="text" name="firstname" class="inline"></paper-input-decorator>
-              <paper-input-decorator label="Company Name (optional)" floatinglabel><input is="core-input" type="text"></paper-input-decorator>
+              <paper-input type="text" label="First Name" autovalidate floatinglabel required class="invalid" is="core-input"></paper-input>
+              <paper-input type="text" label="Last Name" autovalidate floatinglabel required class="invalid" is="core-input"></paper-input>
               <paper-input-decorator label="Email Address" autovalidate error="must be a valid email address!" floatinglabel class="invalid"><input is="core-input" required type="email"></paper-input-decorator>
               <paper-input-decorator label="Message Title" autovalidate error="what would you like to talk about?" floatinglabel class="invalid" layout horizontal><input is="core-input" required type="text" name="firstname" class="inline"></paper-input-decorator>
-              <paper-input-decorator label="Message" autovalidate error="Say Hello!" floatinglabel><textarea required is="core-input"></textarea></paper-input-decorator>
-              <paper-submit id="contactForm" type="submit" onclick="sendContactForm(), document.querySelector('#toast3').show(), document.getElementById('ContactMe').reset()">Send Message</paper-submit>
+              <paper-input-decorator label="Message" autovalidate error="say hello! :)" floatinglabel><textarea required is="core-input"></textarea></paper-input-decorator>
+              <paper-submit id="contactForm" type="submit" onclick="sendContactForm()">Send Message</paper-submit>
             </form>
     </div>
     </template>
