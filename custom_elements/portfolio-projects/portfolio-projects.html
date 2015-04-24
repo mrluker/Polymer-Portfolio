@@ -60,7 +60,8 @@
         text-align: start;
         overflow: hidden;
         background: #fff;
-        box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+       /* box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);*/
+       /* margin: 0px auto 0px auto;*/
       }
 
     .card-left {
@@ -84,9 +85,9 @@
         </style>
         <core-animated-pages selected="{{page}}" transitions="hero-transition" on-core-animated-pages-transition-end="complete" >
                                   <section class="core-selected">
-                                      <div class="chip-container" hero-p on-tap="{{transition}}">
+                                      <div class="chip-container" hero on-tap="{{transition}}">
                                           <template is="auto-binding" id="proyectos">
-                                                <div class="chip" hero-id="{{Hackbart-Video}}" hero?="{{Hackbart-Video}}">
+                                                <div class="chip" hero-id="{{Hackbart_Video}}" hero?="{{Hackbart_Video === selectedProject}}">
                                                     <div class="chip-top" style="background:#f4db33;">
                                                     </div>
                                                     <div class="chip-bottom">
@@ -95,7 +96,7 @@
                                                     </div>
                                                     <paper-ripple fit></paper-ripple>
                                                 </div>
-                                                <div class="chip" hero-id="{{Drawing-IV}}" hero?="{{Drawing-IV}}" >
+                                                <div class="chip" hero-id="{{Drawing_IV}}" hero?="{{Drawing_IV}}" >
                                                     <div class="chip-top" style="background:#8332F4;">
                                                     </div>
                                                     <div class="chip-bottom">
@@ -109,19 +110,19 @@
                                                     </div>
                                                     <div class="chip-bottom">
                                                         <div class="chip-project-title">Project 3</div>
-                                                        <div class="chip-client">Tycho</div>
+                                                        <div class="chip-client">Organ</div>
                                                     </div>
                                                     <paper-ripple fit></paper-ripple>
-                                                </div>-->
+                                                </div>
                                         </template>
                                       </div>
                                   </section>
                                   <section id="details" class>
                                     <template is="autobinding">
-                                        <div id="" class="card" layout horizontal hero-id="{{Hackbart-Video}}" hero on-tap="{{transition}}" z=1>
+                                        <div id="" class="card" layout horizontal hero-id="{{Hackbart_Video}}" hero on-tap="{{transition}}" z=1>
                                             <div class="card-project-title">Project 1</div>
                                         </div>
-                                        <div id="" class="card" layout horizontal hero-id="{{Drawing-IV}}" hero on-tap="{{transition}}" z=1>
+                                        <div id="" class="card" layout horizontal hero-id="{{Drawing_IV}}" hero on-tap="{{transition}}" z=1>
                                             <div class="card-project-title">Project 2</div>
                                         </div>
                                         <div id="" class="card" layout horizontal hero-id="{{Organ}}" hero on-tap="{{transition}}" z=1>
@@ -141,8 +142,8 @@
           selectedAlbum: null,
 
           transition: function(e) {
-            if (this.page === 0 && e.target.templateInstance.model.item) {
-              this.selectedProject = e.target.templateInstance.model.item;
+            if (this.page === 0 && e.target) {
+              this.selectedProject = e.target;
               this.page = 1;
             } else {
               this.page = 0;
