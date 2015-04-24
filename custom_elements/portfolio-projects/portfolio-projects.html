@@ -87,7 +87,7 @@
                                   <section class="core-selected">
                                       <div class="chip-container" hero on-tap="{{transition}}">
                                           <template is="auto-binding" id="proyectos">
-                                                <div class="chip" hero-id="{{Hackbart_Video}}" hero?="{{Hackbart_Video === selectedProject}}">
+                                                <div class="chip" hero-id="{{HackbartVideo}}" hero?="{{sHackbart_Video === 'HackbartVideo'}}">
                                                     <div class="chip-top" style="background:#f4db33;">
                                                     </div>
                                                     <div class="chip-bottom">
@@ -96,7 +96,7 @@
                                                     </div>
                                                     <paper-ripple fit></paper-ripple>
                                                 </div>
-                                                <div class="chip" hero-id="{{Drawing_IV}}" hero?="{{Drawing_IV}}" >
+                                                <div class="chip" hero-id="{{DrawingIV}}" hero?="{{sDrawingIV === 'DrawingIV'}}" >
                                                     <div class="chip-top" style="background:#8332F4;">
                                                     </div>
                                                     <div class="chip-bottom">
@@ -105,7 +105,7 @@
                                                     </div>
                                                     <paper-ripple fit></paper-ripple>
                                                 </div>
-                                                <div class="chip" hero-id="{{Organ}}" hero?="{{Organ}}">
+                                                <div class="chip" hero-id="{{Organ}}" hero?="{{sOrgan === 'Organ'}}">
                                                     <div class="chip-top" style="background:#9CD5FD;">
                                                     </div>
                                                     <div class="chip-bottom">
@@ -119,13 +119,13 @@
                                   </section>
                                   <section id="details" class>
                                     <template is="autobinding">
-                                        <div id="" class="card" layout horizontal hero-id="{{Hackbart_Video}}" hero on-tap="{{transition}}" z=1>
+                                        <div id="" class="card" layout horizontal hero-id="{{sHackbartVideo}}" hero on-tap="{{transition}}" z=1>
                                             <div class="card-project-title">Project 1</div>
                                         </div>
-                                        <div id="" class="card" layout horizontal hero-id="{{Drawing_IV}}" hero on-tap="{{transition}}" z=1>
+                                        <div id="" class="card" layout horizontal hero-id="{{sDrawingIV}}" hero on-tap="{{transition}}" z=1>
                                             <div class="card-project-title">Project 2</div>
                                         </div>
-                                        <div id="" class="card" layout horizontal hero-id="{{Organ}}" hero on-tap="{{transition}}" z=1>
+                                        <div id="" class="card" layout horizontal hero-id="{{sOrgan}}" hero on-tap="{{transition}}" z=1>
                                             <div class="card-project-title">Project 3</div>
                                         </div>
                                     </template>
@@ -136,12 +136,14 @@
     <script>
         
         Polymer('portfolio-projects', {
+            page: 0,
+            
+            selectedAlbum: null,
+            
+            
 
-          page: 0,
-
-          selectedAlbum: null,
-
-          transition: function(e) {
+            
+          /*transition: function(e) {
             if (this.page === 0 && e.target) {
               this.selectedProject = e.target;
               this.page = 1;
@@ -149,7 +151,7 @@
               this.page = 0;
             }
           }
-        });
+        });*/
         
     </script>
 </polymer-element>
