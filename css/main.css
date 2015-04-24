@@ -72,6 +72,10 @@ core-animated-pages > section {
     margin-top: 30px;
 }
 
+#portfolio {
+    height: 100vh;
+}
+
 #page1 {
 }
 
