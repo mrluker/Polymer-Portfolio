@@ -84,10 +84,9 @@
       }
         </style>
         <core-animated-pages selected="{{projectListOrDetails}}" transitions="hero-transition" on-core-animated-pages-transition-end="complete" >
-          <section class="core-selected">
-              <div class="chip-container" hero on-tap="{{transitionProject}}">
-                  <template is="auto-binding" id="proyectos">
-                        <div class="chip" id="HackbartVideoChip" hero-id="HackbartVideo" hero?="{{sHackbartVideo == 'HackbartVideo'}}">
+          <section>
+              <div class="chip-container" hero on-tap="{{transition}}">
+                        <div class="chip" id="HackbartVideoChip" hero-id="HackbartVideo" hero?="{{selectedProject == 'HackbartVideo'}}">
                             <div class="chip-top" style="background:#f4db33;">
                             </div>
                             <div class="chip-bottom">
@@ -118,8 +117,7 @@
               </div>
           </section>
           <section id="details" class>
-            <template is="autobinding">
-                <div id="" class="card" layout horizontal hero-id="{{sHackbartVideo}}" hero on-tap="{{transitionProject}}">
+                <div id="" class="card" layout horizontal hero-id="{{selectedProject}}" hero on-tap="{{transition}}">
                     <div class="card-project-title">Project 1</div>
                 </div>
                 <!--<div id="" class="card" layout horizontal hero-id="{{sDrawingIV}}" hero on-tap="{{transition}}" z=1>
@@ -128,7 +126,6 @@
                 <div id="" class="card" layout horizontal hero-id="{{sOrgan}}" hero on-tap="{{transition}}" z=1>
                     <div class="card-project-title">Project 3</div>
                 </div>-->
-            </template>
           </section>
         </core-animated-pages>
         
@@ -136,11 +133,11 @@
     <script>
         
         Polymer('portfolio-projects', {
-            page: 0,
+            projectListOrDetails: 0,
             
             selectedProject: null,
 
-            transitionProject: function(evt) {
+            transition: function(evt) {
                 if (this.$.HackbartVideoChip.contains(evt.target)) {
                     this.sHackbartVideo = 'HackbartVideo';
                 }

@@ -30,9 +30,18 @@ core-scroll-header-panel {
     -webkit-overflow-scrolling: touch;
 }
 
+core-scroll-header-panel::shadow #headerContainer {
+    pointer-events: none;
+}
+
 core-toolbar {
     background: #03a9f4;
-    color: white;
+    color: white; 
+    /*height: 80vh;*/
+}
+
+core-toolbar::shadow {
+    pointer-events: none;
 }
 
 #tabs {
