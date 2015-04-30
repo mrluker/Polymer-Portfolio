@@ -5,6 +5,9 @@
 <link rel="import" href="../../bower_components/paper-elements/paper-elements.html">
 <link rel="import" href="../../bower_components/core-animated-pages/core-animated-pages.html">
 <link rel="import" href="../../bower_components/core-pages/core-pages.html">
+<link rel="import" href="../../bower_components/core-transition/core-transition-overlay.css">
+<link rel="import" href="../../bower_components/core-transition/core-transition-css.html">
+
 <link rel="import" href="../../bower_components/core-animated-pages/transitions/hero-transition.html">
 <link rel="import" href="../../bower_components/core-animated-pages/transitions/cross-fade.html">
 <link rel="import" href="../../bower_components/paper-input/paper-autogrow-textarea.html">
@@ -22,7 +25,7 @@
         right: 0;
         left: 0;
         text-align: center;
-              margin-top: 30px;
+        margin-top: 30px;
       }
 
     .chip {
@@ -55,16 +58,17 @@
       }
 
     .card {
+        position: relative;
         height: 400px;
         border-radius: 3px;
         text-align: start;
-        overflow: hidden;
+        overflow: scroll;
         background: #fff;
-       /* box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);*/
+        box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
        /* margin: 0px auto 0px auto;*/
       }
 
-    .card-left {
+     .card-left {
         width: 400px;
       }
 
@@ -84,9 +88,9 @@
       }
         </style>
         <core-animated-pages selected="{{projectListOrDetails}}" transitions="hero-transition" on-core-animated-pages-transition-end="complete" >
-          <section>
+          <section id="project-list">
               <div class="chip-container" hero on-tap="{{transition}}">
-                        <div class="chip" id="HackbartVideoChip" hero-id="HackbartVideo" hero?="{{selectedProject == 'HackbartVideo'}}">
+                        <div class="chip" id="HackbartVideoChip" hero-id="HackbartVideo" hero?="{{sHackbartVideo == 'HackbartVideo'}}">
                             <div class="chip-top" style="background:#f4db33;">
                             </div>
                             <div class="chip-bottom">
@@ -95,7 +99,7 @@
                             </div>
                             <paper-ripple fit></paper-ripple>
                         </div>
-                        <!--<div class="chip" hero-id="{{DrawingIV}}" hero?="{{sDrawingIV === 'DrawingIV'}}" >
+                        <div class="chip" id="DrawingIVChip" hero-id="DrawingIV" hero?="{{sDrawingIV === 'DrawingIV'}}" >
                             <div class="chip-top" style="background:#8332F4;">
                             </div>
                             <div class="chip-bottom">
@@ -104,7 +108,7 @@
                             </div>
                             <paper-ripple fit></paper-ripple>
                         </div>
-                        <div class="chip" hero-id="{{Organ}}" hero?="{{sOrgan === 'Organ'}}">
+                        <div class="chip" id="OrganBookletChip" hero-id="Organ" hero?="{{sOrgan === 'Organ'}}">
                             <div class="chip-top" style="background:#9CD5FD;">
                             </div>
                             <div class="chip-bottom">
@@ -112,20 +116,20 @@
                                 <div class="chip-client">Organ</div>
                             </div>
                             <paper-ripple fit></paper-ripple>
-                        </div>-->
-                </template>
+                        </div>
+                
               </div>
           </section>
           <section id="details" class>
-                <div id="" class="card" layout horizontal hero-id="{{selectedProject}}" hero on-tap="{{transition}}">
+                <div id="" class="card" layout horizontal hero-id="{{sHackbartVideo}}" hero on-tap="{{transition}}">
                     <div class="card-project-title">Project 1</div>
                 </div>
-                <!--<div id="" class="card" layout horizontal hero-id="{{sDrawingIV}}" hero on-tap="{{transition}}" z=1>
+                <div id="" class="card" layout horizontal hero-id="{{sDrawingIV}}" hero on-tap="{{transition}}" z=1>
                     <div class="card-project-title">Project 2</div>
                 </div>
                 <div id="" class="card" layout horizontal hero-id="{{sOrgan}}" hero on-tap="{{transition}}" z=1>
                     <div class="card-project-title">Project 3</div>
-                </div>-->
+                </div>
           </section>
         </core-animated-pages>
         
@@ -140,19 +144,20 @@
             transition: function(evt) {
                 if (this.$.HackbartVideoChip.contains(evt.target)) {
                     this.sHackbartVideo = 'HackbartVideo';
-                }
+                }   
+                
+                if (this.$.DrawingIVChip.contains(evt.target)) {
+                    this.sDrawingIV = 'DrawingIV';
+                }   
+                
+                if (this.$.OrganBookletChip.contains(evt.target)) {
+                    this.sOrgan = 'Organ';
+                }   
                 
                 
                 this.projectListOrDetails = 1;
             }
-          /*transition: function(e) {
-            if (this.page === 0 && e.target) {
-              this.selectedProject = e.target;
-              this.page = 1;
-            } else {
-              this.page = 0;
-            }
-          }*/
+          
             
         });
         
